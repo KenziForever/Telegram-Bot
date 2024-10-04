@@ -8,7 +8,6 @@ token = config('BOT_TOKEN')
 bot = Bot(token=token)
 dp = Dispatcher(bot)
 
-
 @dp.message_handler(commands=['start'])
 async def command_start(message: types.Message):
     name = message.from_user.first_name
