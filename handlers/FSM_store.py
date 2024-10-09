@@ -60,7 +60,7 @@ async def load_photo(message: types.Message, state: FSMContext):
 
 async def Yes_Not_fsm(message: types.Message, state: FSMContext):
     if message.text == 'Да':
-        await message.answer('Данные сохранены.', reply_markup=ReplyKeyboardRemove())
+        await message.answer('Данные сохранены', reply_markup=ReplyKeyboardRemove())
     else:
         await message.answer('Данные не сохранены', reply_markup=ReplyKeyboardRemove())
 
@@ -74,4 +74,3 @@ def store_handler_storing(dp: Dispatcher):
     dp.register_message_handler(load_size, state=fcm_storing.size)
     dp.register_message_handler(load_photo, content_types=['photo'], state=fcm_storing.photo)
     dp.register_message_handler(Yes_Not_fsm, Text(equals=["Да", "Нет"]), state=fcm_storing.photo)
-
