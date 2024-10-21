@@ -1,10 +1,12 @@
 from aiogram import types, Dispatcher
 from random import choice
 import os
+from config import bot
 
 async def commands_start(message: types.Message):
     name = message.from_user.first_name
     await message.answer(f'Добро пожалавать {name} чем могу помочь?')
+    await bot.send_message(chat_id=message.from_user.id, text=f'Твой телеграм ID - {message.from_user.id}')
 
 async def picture_send(message: types.Message):
     photo_path = os.path.join('images', '344367ffa26a0bf308806ed9f55613bc.jpg')
