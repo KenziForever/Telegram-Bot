@@ -29,3 +29,15 @@ INSERT_STORE_DETAIL_QUERY = """
     VALUES (?, ?, ?)
 """
 
+CREATE_TABLE_COLLECTION_PRODUCTS = """
+CREATE TABLE IF NOT EXISTS collection_products(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    product_id VARCHAR(255),
+    collection VARCHAR(255)
+)
+"""
+
+INSERT_STORE_COLLECTION_QUERY = """
+    INSERT INTO collection_products(product_id, collection)
+    VALUES(?, ?)
+"""
